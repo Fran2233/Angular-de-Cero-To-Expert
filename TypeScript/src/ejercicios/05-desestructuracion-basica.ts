@@ -30,11 +30,11 @@ const reproductor: reproductor = {
 const { volumen, segundo, cancion, detalles/* , detalles:{autor :autorDetalles ,anio: anioDetalles} */ } = reproductor; /* Todo en una linea */
 const { autor, anio } = detalles;  /* --> mejor usa esta */
 
-// console.log('El volumen actual es de: ', volumen)
-// console.log('El segundo actual es de: ', segundo)
-// console.log('La cancion actual es : ', cancion)
-// console.log('El Autor actual es de: ', autor)
-// console.log('El anio actual es de: ', anio)
+console.log('El volumen actual es de: ', volumen)
+console.log('El segundo actual es de: ', segundo)
+console.log('La cancion actual es : ', cancion)
+console.log('El Autor actual es de: ', autor)
+console.log('El anio actual es de: ', anio)
 
 
 const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
