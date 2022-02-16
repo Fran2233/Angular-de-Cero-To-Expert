@@ -1,20 +1,36 @@
-import { producto, calcularISV } from './ejercicios/06-desestructuracion-funcion';
+
 
 /*
 ===== Código de TypeScript =====
 
 */
 
-class Hero {
-
-    alterEgo: string;
-    edad: number;
-    nombreReal: string;
+interface Pasajero {
+    nombre: string,
+    hijos?: string[],
 }
 
-// STATIC es paraa acceder sin crear una instancia
+const pasajero1: Pasajero = {
+    nombre: 'Fran',
+}
+
+const pasajero2: Pasajero = {
+    nombre: 'Pedro',
+    hijos: ['Natalia', 'Gabriel']
+}
 
 
-const ironman = new Hero();
+function imprimeHijos(pasajero: Pasajero): void {
 
-console.log(ironman);
+    const cuantosHijos = pasajero.hijos?.length;
+    // INTENTA VER SI TIENE HIJOS 
+
+    console.log(cuantosHijos);
+
+
+}
+
+
+imprimeHijos(pasajero1);
+
+
