@@ -1,9 +1,14 @@
 <p>Listado de Heroes</p>
 
 <!-- ngIF -->
-<div *ngIf="heroesBorrado !== ''">
+<div *ngIf="heroesBorrado; else noBorrado">
     <h3 >Héroe borrado: <small>{{heroesBorrado}}</small></h3>
 </div>
+
+<ng-template #noBorrado>
+    <h3 >No ha borrado nada</h3>
+</ng-template>
+
 
 <button (click)="borrarHeroe()">
     Borrar
