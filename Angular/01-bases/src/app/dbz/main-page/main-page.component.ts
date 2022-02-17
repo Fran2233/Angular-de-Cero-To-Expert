@@ -32,6 +32,11 @@ export class MainPageComponent {
 
   }
 
+
+  agregarNuevoPersonaje(event : Personaje){
+    this.personajes.push(event);
+  }
+
  
 
 
