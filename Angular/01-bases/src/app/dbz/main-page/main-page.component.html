@@ -7,7 +7,7 @@
         <hr>
         <ul>
             <li *ngFor="let personaje of personajes">
-                {{personaje.nombre}} - {{personaje.poder}}
+                {{personaje.nombre}} - {{personaje.poder | number}}
             </li>
         </ul>
     </div>
