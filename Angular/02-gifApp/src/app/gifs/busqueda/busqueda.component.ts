@@ -9,7 +9,8 @@ import { GifsService } from '../services/gifs.service';
 })
 export class BusquedaComponent {
 
-  // OPERADOR PARA ASEGURARSE DEL OBJ NO ES NULO
+  // OPERADOR PARA ASEGURARSE DEL OBJ NO ES NULO CUANDO NO ESTA 
+  // INICIALIZADO USO !
   @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
   constructor(private gifsService: GifsService) { }
   
