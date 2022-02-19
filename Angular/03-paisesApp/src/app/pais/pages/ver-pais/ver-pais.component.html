@@ -29,7 +29,11 @@
     <h3>Traducciones</h3>
     <div class="row">
         <div class="col">
-            <span *ngFor="let t of pais.translations | keyvalue" class="badge bg-primary mr-1">{{t.value.official}}</span>
+            <span *ngFor="let t of pais.translations | keyvalue" class="badge bg-primary m-1">{{t.value.official}}</span>
         </div>
     </div>
+    <!-- //TODO muestra el obj -->
+    <!-- <pre>
+        {{pais | json}}
+    </pre> -->
 </ng-template>
