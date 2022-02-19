@@ -10,8 +10,8 @@ export class PaisTablaComponent {
 
 
   @Input('listaPaises') paises!: Country[];
-
-
+ 
+  
   constructor() { }
 
   

@@ -5,37 +5,60 @@ import { Country, } from '../../interfaces/pais.interface';
 @Component({
   selector: 'app-por-region',
   templateUrl: './por-region.component.html',
-  
+  styles: [
+    `
+    button{
+      margin-right: 1.5px;
+    }
+    `
+  ]
 })
-export class PorRegionComponent  {
+export class PorRegionComponent {
 
-  termino: string = '';
+  // termino: string = '';
   hayError: boolean = false;
   paises: Country[] = [];
-
+  
+  regiones: string[] = [
+    'africa', 'americas', 'asia', 'europe', 'oceania'
+  ]
+  regionActive: string = '';
   constructor(private paisService: PaisService) { }
 
+  activarRegion(region: string) {
+    if(region === this.regionActive){return};
 
-  buscar(termino :string) {
-    this.hayError = false;
-    this.termino = termino;
-                                            //TODO  PARA QUE SE DISPARE  
-    this.paisService.buscarRegion(this.termino).subscribe({
-      next: (paises) => {
-        this.paises = paises;
-        console.log(paises);
-      },
-      error: (err) => {
-        console.info(err);
-        this.hayError = true;
-        this.paises = [];
-      },
-    });
+    this.regionActive = region;
+
+    this.paisService.buscarRegion(region).subscribe
+    ( paises => this.paises = paises);
   }
 
-  sugerencias(termino :string){
-    this.hayError = false;
-    //TODO asdasd
+  getClasesCSS(region: string): string {
+    return (region === this.regionActive) ? 'btn btn-primary' : 'btn btn-outline-primary'
   }
 
-}
+
+  // buscar(region :string) {
+  //   this.hayError = false;
+  //   this.regionActive = region;
+  //                                           //TODO  PARA QUE SE DISPARE  
+  //   this.paisService.buscarRegion(this.regionActive).subscribe({
+  //     next: (paises) => {
+  //       this.paises = paises;
+  //       console.log(paises);
+  //     },
+  //     error: (err) => {
+  //       console.info(err);
+  //       this.hayError = true;
+  //       this.paises = [];
+  //     },
+  //   });
+  }
+
+  // sugerencias(termino :string){
+  //   this.hayError = false;
+  //   //TODO asdasd
+  // }
+
+

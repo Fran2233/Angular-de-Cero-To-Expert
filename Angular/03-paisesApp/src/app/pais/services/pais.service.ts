@@ -12,7 +12,6 @@ export class PaisService {
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
 
-
   constructor(private http: HttpClient) { }
 
   buscarPais(termino: string): Observable <Country[]>{
@@ -37,13 +36,21 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
-  buscarRegion(termino :string):Observable <Country[]>{
-    const url = `${this.apiUrl}/region/${termino}`;
+  buscarRegion(region :string):Observable <Country[]>{
+    const url = `${this.apiUrl}/region/${region}`;
     return this.http.get<Country[]>(url);
   }
+
+  // buscarRegion(termino :string):Observable <Country[]>{
+  //   const url = `${this.apiUrl}/region/${termino}`;
+  //   return this.http.get<Country[]>(url);
+  // }
+
 
   getPaisPorId(id :string):Observable <Country>{
     const url = `${this.apiUrl}/alpha/${id}`;
     return this.http.get<Country>(url);
   }
+
+  
 }

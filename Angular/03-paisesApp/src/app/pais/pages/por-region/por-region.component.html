@@ -1,25 +1,24 @@
-<h2>Por region</h2>
+<h3>Buscar por region <small>{{regionActive | titlecase}}</small></h3>
 <hr>
 
+<h5>seleccione region</h5>
+<!-- [class.btn-primary]="region === regionActive"  --><!-- TODOformas de dar clases -->
+<!-- [ngClass]="{'btn-primary': regionActive === region,
+         'btn-outline-primary': regionActive !== region}" -->
 
 <div class="row">
     <div class="col">
-        <app-pais-input
-        (onEnter)="buscar($event)"
-        (onDebounce)="sugerencias($event)"
-        placeholder="Buscar region..."
-        ></app-pais-input>
+        <button 
+        (click)="activarRegion(region)"
+         [class]="getClasesCSS(region) " 
+         *ngFor="let region of regiones">
+            {{region | titlecase}}
+        </button>
     </div>
-</div>
-
-<hr>
-
-<div *ngIf="hayError" class="alert alert-danger">
-    No se encontro nada con el término "{{termino}}"
 </div>
 
 <div *ngIf="!hayError && paises.length >= 1" class="row">
     <div class="col">
-        <app-pais-tabla [listaPaises]="paises"></app-pais-tabla>
+        <app-pais-tabla   [listaPaises]="paises"></app-pais-tabla>
     </div>
 </div>
