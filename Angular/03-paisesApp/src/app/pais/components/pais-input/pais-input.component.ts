@@ -20,7 +20,7 @@ export class PaisInputComponent implements OnInit{
 
 
   ngOnInit() {
-      this.debouncer
+      this.debouncer /* emite valor luego de q deja de escribir */
       .pipe(
         debounceTime(300)
       )
