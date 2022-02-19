@@ -9,7 +9,7 @@ import { debounceTime, Subject } from 'rxjs';
 
 })
 export class PaisInputComponent implements OnInit{
-  // usualmente se le pone "on"
+  //TODO usualmente se le pone "on"
   @Output() onEnter: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
   @Input() placeholder!: string;
@@ -30,7 +30,7 @@ export class PaisInputComponent implements OnInit{
   }
 
   buscar() {
-    // emito el termino
+    //TODO emito el termino
     this.onEnter.emit(this.termino);
   }
 

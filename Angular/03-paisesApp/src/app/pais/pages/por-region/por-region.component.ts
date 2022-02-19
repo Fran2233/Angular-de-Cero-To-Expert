@@ -19,7 +19,7 @@ export class PorRegionComponent  {
   buscar(termino :string) {
     this.hayError = false;
     this.termino = termino;
-                                             /* PARA QUE SE DISPARE  */
+                                            //TODO  PARA QUE SE DISPARE  
     this.paisService.buscarRegion(this.termino).subscribe({
       next: (paises) => {
         this.paises = paises;
@@ -35,7 +35,7 @@ export class PorRegionComponent  {
 
   sugerencias(termino :string){
     this.hayError = false;
-    //TODO  sadasd
+    //TODO asdasd
   }
 
 }
