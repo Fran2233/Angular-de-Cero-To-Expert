@@ -11,9 +11,6 @@ import { Country, Name } from '../../interfaces/pais.interface';
       }
       
       `
-
-
-
   ]
 
 })

@@ -1,0 +1,100 @@
+<h2>Template: Switches</h2>
+<hr>
+
+<form #miForm="ngForm">
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Genero</label>
+
+        <div class="col-sm-9">
+
+            <div class="form-check">
+                <input 
+                class="form-check-input" 
+                type="radio" 
+                value="M"
+                [(ngModel)]="persona.genero"
+                name="radioGenero" 
+                id="flexRadioDefault1"
+                required>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Masculino
+                </label>
+            </div>
+            <div class="form-check">
+                <input 
+                class="form-check-input" 
+                type="radio" 
+                value="F"
+                [(ngModel)]="persona.genero"
+                name="radioGenero" 
+                id="flexRadioDefault2"
+                required>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Femenino
+                </label>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Notficaciones</label>
+
+        <div class="col-sm-9">
+            <div class="form-check form-switch mt-2">
+                <input 
+                class="form-check-input" 
+                type="checkbox" 
+                role="switch"
+                [(ngModel)]="persona.notification"
+                name="notificaciones"
+                id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Recibir notificaciones</label>
+              </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"></label>
+
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input 
+                class="form-check-input" 
+                type="checkbox" 
+                [(ngModel)]="termYCondiciones"
+                name="TerminosYCondiciones"
+                id="flexCheckDefault"
+                required>
+                <label class="form-check-label" for="flexCheckDefault">
+                  Terminos  y condiciones
+                </label>
+              </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button [disabled]="!miForm.valid" class="btn btn-primary float-end">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+</form>
+
+
+<h5>valor del form</h5>
+<pre>{{miForm.value | json}}</pre>
+<br>
+
+<h5>Valid</h5>
+<pre>{{miForm.valid}}</pre>
+<br>
+
+<pre>condiciones:</pre>

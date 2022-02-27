@@ -1,0 +1,76 @@
+<h2>Template: <small>Dinámicos</small></h2>
+<hr>
+
+
+<form action="" (ngSubmit)="guardar()" #miFormulario="ngForm">
+    <!-- nombre -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Nombre :</label>
+        <div class="col-sm-9">
+            <input
+            class="form-control"
+            required
+            placeholder="Nombre de la persona" type="text" name="" id=""
+            [ngModel]="persona.nombre"
+            name="nombre">
+            <span 
+            *ngIf="miFormulario.controls['nombre']?.errors"
+                class="form-text text-danger">
+                campo obligatorio
+            </span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Agregar :</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                 <input
+            class="form-control"
+            [(ngModel)]="nuevoJuego"
+            name="nuevoJuego"
+            (keyup.enter)="agregarJuego()"
+            placeholder="Agregar favorito" type="text"  id="">
+            <button class="btn btn-outline-primary" type="button" (click)="agregarJuego()">Agregar</button>
+            </div>
+           
+            
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Favoritos :</label>
+        <div class="col-sm-9">
+            <div class="input-group mb-1"
+            *ngFor="let juego of persona.favoritos; let i = index"> 
+                <input
+                [(ngModel)]="juego.nombre"
+                name=" juego.favorito[{{i}}]"
+                class="form-control "
+                required>
+                <button (click)="borrar(i)" class="btn btn-outline-danger" type="button">Borrar</button>
+           </div>
+           
+           
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <button 
+            [disabled]="miFormulario.invalid"
+            class="btn btn-primary float-end" 
+            type="button" (click)="guardar()">
+                Guardar
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<span>Persona</span>
+<pre>{{persona | json}}</pre>
