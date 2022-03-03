@@ -1,0 +1,27 @@
+<h1>Redes mas usadas</h1>
+<hr>
+
+<div 
+    *ngIf="doughnutChartLabels.length === 0,else divGrafica"
+class="alert alert-info">
+    Cargando...
+</div>
+
+<div class="row" >
+    <div class="col">
+
+        <ng-template #divGrafica>
+
+            <div style="display: block">
+                        <canvas 
+                            baseChart 
+                            [data]="doughnutChartData" 
+                            [type]="doughnutChartType">
+                        </canvas>
+                    </div>
+
+        </ng-template>
+        
+      
+    </div>
+</div>
