@@ -18,7 +18,7 @@ const createUser = async (req, res = response) => {
         if (usuario) {
             return res.status(400).json({
                 ok: false,
-                msg: 'Email ya existe'
+                msg: '¡El email ya esta en uso!'
             });
         }
 
@@ -40,7 +40,8 @@ const createUser = async (req, res = response) => {
             ok: true,
             uid: dbUser.id,
             name,
-            token
+            token,
+            email
         });
 
     } catch (error) {
@@ -63,7 +64,7 @@ const loginUser = async (req, res) => {
         if (!dbUser) {
             return res.status(400).json({
                 ok: false,
-                msg: 'Credenciales no validas'
+                msg: 'Email erroeno'
             });
         }
 
@@ -87,7 +88,8 @@ const loginUser = async (req, res) => {
             ok: true,
             uid: dbUser.id,
             name: dbUser.name,
-            token
+            token,
+            email
         })
 
     } catch (error) {
@@ -104,15 +106,22 @@ const loginUser = async (req, res) => {
 // renovar token
 const renewToken = async (req, res) => {
 
-    const { uid, name } = req;
+    const { uid} = req;
+//lerr database
+const dbUser = await Usuario.findById(uid);
 
 
-    const token = await generarJWT(uid, name);
+
+    const token = await generarJWT(uid, dbUser.name);
+    console.log(res);
     return res.json({
         ok: true,
         uid,
-        name,
-        token
+        name: dbUser.name,
+        token,
+        email: dbUser.email
+        
+        
     });
 
 

@@ -1,0 +1,26 @@
+<h1>Dashboard</h1>
+<hr>
+
+
+
+<p>
+    Esta pag esta protegida con el login
+</p>
+
+
+<h4>User info</h4>
+
+
+<pre>{{user | json}}</pre>
+
+
+<div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+        <div class="login100-form-bgbtn"></div>
+        <button 
+        (click)="logout()"
+        type="submit" class="login100-form-btn">
+        Logout
+        </button>
+    </div>
+</div>
