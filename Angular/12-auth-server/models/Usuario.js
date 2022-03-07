@@ -15,7 +15,8 @@ const usuarioSchema = Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    roles
 
 
 });
